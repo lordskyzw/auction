@@ -1,0 +1,56 @@
+{% extends "auctions/layout.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% load humanize %}
+{% block body %}
+
+<style>
+    h3 {
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
+    .htmx-indicator {
+        display: inline-block;
+        margin-left: 10px;
+    }
+    form {
+        position: relative;
+    }
+    .form-control {
+        width: 100%;
+        padding: 10px;
+        font-size: 18px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+    #search-results {
+        margin-top: 20px;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+    .highlight {  
+        background-color: #46ffb3;  
+    }
+</style>
+
+<h3>
+    <span class="htmx-indicator">
+      ...
+   </span>
+</h3>
+
+<form>
+    {% csrf_token %}
+    <input autofocus class="form-control" type="search"
+           name="search" placeholder="Start typing the title of the item"
+           hx-get="{% url 'search_result' %}"
+           hx-trigger="keyup changed, search"
+           hx-target="#search-results"
+           hx-indicator=".htmx-indicator">
+</form>
+
+<div id="search-results">
+    {% include "auctions/search_result.html" %}
+</div>
+{% endblock body %}

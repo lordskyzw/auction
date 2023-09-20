@@ -1,0 +1,50 @@
+body {
+    padding: 57px;
+    background-color: #c5d0d6;
+}
+.site-header .navbar-nav .nav-link {
+    color: #cbd5db;
+    height: 50%;
+}
+
+a.greeting {
+    color: rgb(21, 170, 21)
+}
+
+th, a.greeting:hover {
+    color: white;
+}
+
+a.farewell:hover, a.not-signed-in{
+    color: red;
+}
+
+#nav_item:hover {
+    background-color: white;
+    color: green;
+    font-size: bold;
+}
+
+.listing-img {
+    height: 120px;
+    width: 110px;
+    margin-right: 16px;
+}
+
+.article-content {
+    white-space: pre-line;
+  }
+
+  .article-metadata {
+    padding-bottom: 1px;
+    margin-bottom: 4px;
+    border-bottom: 1px solid #5c4b4b
+  }
+
+  .content-section {
+    background: #eed9eb;
+    padding: 10px 20px;
+    border: 1px solid #dddddd;
+    border-radius: 10px;
+    margin-bottom: 10px;
+  }
