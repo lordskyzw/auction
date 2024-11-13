@@ -39,6 +39,10 @@ def index(request):
             if not request.user.is_authenticated:
                 messages.error(request, "You must be signed in before you can create a listing")
                 return HttpResponseRedirect(reverse('index'))
+            admin_user = User.objects.get(username='example')# Replace 'admin_username' with the actual admin username
+            if request.user != admin_user:
+                messages.error(request, "Only the admin can create listings.")
+                return HttpResponseRedirect(reverse('index'))
             create_listing_form.instance.listed_by = request.user
             create_listing_form.save()
             return HttpResponseRedirect(reverse('index'))
